@@ -1,0 +1,371 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+
+    /*modo cor HSL (hue, saturation, lightness)*/
+    /*
+        Blue: hsl(207, 90%, 61%)
+        Purple: hsl(250, 66% 75%)
+        Pink: hsl(356, 66%, 75%)
+        Teal: hsl(174, 63%, 62%)
+    */   
+
+    --hue: 207;
+    --sat: 90%;
+    --lig: 61%;
+    --first-color: hsl(var(--hue), var(--sat), var(--lig));
+    --first-color-alt: hsl(var(--hue), var(--sat), 57%); /* -4% */
+    --title-color: hsl(var(--hue), 12%, 15%);
+    --text-color: hsl(var(--hue), 12%, 45%);
+    --text-color-light: hsl (var(--hue), 8%, 75%);
+    --text-color-lighten: hsl (var(--hue), 8%, 92%);
+    --body-color: hsl (var(--hue), 100%, 99%);
+    --container-color: #fff;
+  
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Josefin Sans', sans-serif;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+}
+
+/*responsive typography*/
+@media screen and (min-width: 968px) {
+    :root {
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }    
+}
+
+/*==========BASE==========*/
+*{
+    box-sizing: border-box;
+    padding: 2px;
+    margin: 0;
+}
+
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: 600;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*========== classe css reutilizavel ==========*/
+.container{
+    max-width: 968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+/*========== perfil ==========*/
+
+.perfil {
+    position: relative;
+    padding-top: 3.5rem;
+}
+
+.perfil__container {
+    row-gap: 2rem;
+}
+
+.perfil__data{
+    display: grid;
+    text-align: center;
+    gap: 5px;
+}
+
+/* == rever esta configuração de gradiente não está funcionando== */
+
+.perfil__perfil{
+    width: 88px;
+    height: 98px;
+    /*background-color: linear-gradient(180deg, 
+                      hsla(var(--hue), var(--sat), var(--lig), 1) 0%,
+                      hsla(var(--hue), var(--sat), var(--lig), .2) 100%);*/
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* == rever esta configuração == */
+.perfil__perfil img{
+    width: 80px;
+}
+
+.perfil__border{
+    border: 4.0px solid;
+    color: #4f0481;
+    justify-self: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: .75rem;
+}
+
+.perfil__border:hover{
+    color: #7d05ce;
+    transition: .5s;
+}
+
+.perfil_nome{
+    font-size: var(--h2-font-size);
+}
+
+.perfil_profissao{
+    font-size: var(--smaller-font-size);
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.midias_sociais{
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.midias_sociais-link{
+    font-size: 1.5rem;
+    color: var(--title-color);
+    transition: .3s;
+}
+
+.midias_sociais-link:hover{
+    color: #8027f5;
+}
+
+.perfil__info{
+    grid-template-columns: repeat(3, max-content);
+    justify-content: center;
+    column-gap: 2.5rem;
+}
+
+.perfil__info-grupo{
+    text-align: center;
+}
+
+.perfil__info-numero{
+    margin-bottom: .25rem;
+}
+
+.perfi_info-descricao{
+    font-size: var(--smaller-font-size);
+    font-weight: 500;
+}
+
+.perfil__botoes,
+.perfil__botoes-small{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil__botoes{
+    column-gap: 1rem;
+}
+
+.perfil__botoes-small{
+    column-gap: .25rem;
+}
+
+/*========== buttons ==========*/
+
+.botao{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: #4f0481;
+    color: #fff;
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    transition: .3s;
+    box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25) ;
+}
+
+.botao i{
+    font-size: 1.25rem;
+}
+
+.botao:hover{
+    background-color: #8027f5;
+}
+
+.botao__small{
+    padding: .75rem;
+    box-shadow: none;    
+}
+
+.botao__claro{
+    background-color: #fbf4ff;
+    color: #4f0481;
+}
+
+/*========== filtros ==========*/
+
+.filtros__content{
+    margin: 2rem 0 2.5rem;
+    background-color: var(--text-color-lighten);
+    padding: .375rem;
+    display: flex;
+    justify-content: space-between;
+    column-gap: .5rem;
+}
+
+.filtros__botoes{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    font-family: var(--body-font);
+    border-radius: .75rem;
+    cursor: pointer;
+    background-color: transparent;
+    transition: .3s;
+}
+
+.filtros__botoes:hover{
+    background-color: #4f0481;
+    color: #fbf4ff;
+}
+
+/*========== projetos ==========*/
+
+.projects__card{
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.projects__card img{
+    width: 100%;
+    height: 100%;
+}
+
+.projects__modal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+    background: linear-gradient(180deg,
+                hsla(var(--hue), 24%, 40%, .3) 0%
+                hsla(var(--hue), 24%, 4%, 1) 95%);
+    display: grid;
+    align-items: flex-end;
+    padding: 1.5rem 1.25rem;
+    transition: .3s;
+}
+
+.projects__subtitle,
+.projects__title{
+    color: #fff;
+}
+
+.projects__subtitle{
+    font-size: var(--smaller-font-size);
+}
+
+.projects__title{
+    font-size: var(--h3-font-size);
+    margin-bottom: .75rem;
+}
+
+.projects__botoes{
+    padding: .5rem;
+}
+
+.projects__card:hover .projects__modal{
+    bottom: 0;
+}
+
+/*========== habilidades ==========*/
+
+.skills__content{
+    row-gap: 3.5rem;
+}
+
+.skills__title{
+    font-size: var(--h3-font-size);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.skills__box{
+    display: flex;
+    justify-content: center;
+    column-gap: 3rem;
+}
+
+.skilks__grop{
+    display: grid;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+.skills__data{
+    display: flex;
+    column-gap: .5rem;
+}
+
+.skills__data i{
+    font-size: 1rem;
+    color: #7d05ce;
+}
+
+.skills__name{
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.skills__level{
+    font-size: var(--smaller-font-size);
+}
+
+/*ocultar e mostrar projetos e habilidades*/
+.filtros [data-content]{
+    display: none;
+}
+
+.filtros__active[data-content]{
+    display: grid;
+}
+/* ativação do botão de filtros*/
+
+/*========== rodape ==========*/
